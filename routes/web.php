@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ClienteController;
+use App\Http\Controllers\VehiculoController;
 use GuzzleHttp\Client;
 use Illuminate\Support\Facades\Route;
 use App\Models\Cliente;
@@ -25,6 +26,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/editar-cliente/{cliente}', [ClienteController::class, 'edit'])->name('clientes.edit');
     Route::put('/cliente/{cliente}', [ClienteController::class, 'update'])->name('clientes.update');
     Route::delete('/cliente/{cliente}', [ClienteController::class, 'destroy'])->name('clientes.destroy');
+
+    Route::get('/vehiculos', [VehiculoController::class, 'index'])->name('vehiculos.index');
+    Route::get('/crear-vehiculo', [VehiculoController::class, 'create'])->name('vehiculos.create');
+    Route::post('/crear-vehiculo', [VehiculoController::class, 'store'])->name('vehiculos.store');
 });
 
 require __DIR__ . '/auth.php';

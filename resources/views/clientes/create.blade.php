@@ -16,13 +16,17 @@
                         <input type="text" name="nombre" style="background-color: transparent; width:100%; border-radius:8px;" required><br><br>
 
                         <label for="cedula">Cédula:</label>
-                        <input type="text" name="cedula" style="background-color: transparent; width:100%; border-radius:8px;" required><br><br>
+                        <input type="text" name="cedula" style="background-color: transparent; width:100%; border-radius:8px;"
+                            pattern="\d{11}" title="La cédula debe tener exactamente 11 dígitos"
+                            maxlength="11" required><br><br>
 
                         <label for="direccion">Dirección:</label>
                         <input type="text" name="direccion" style="background-color: transparent; width:100%; border-radius:8px;" required><br><br>
 
                         <label for="telefono">Teléfono:</label>
-                        <input type="text" name="telefono" style="background-color: transparent; width:100%; border-radius:8px;"><br><br>
+                        <input type="text" name="telefono" style="background-color: transparent; width:100%; border-radius:8px;"
+                            pattern="\d{10}" title="El numero de telefono debe tener exactamente 10 dígitos"
+                            maxlength="10" required><br><br>
 
                         <x-primary-button class="">Guardar Cliente</x-primary-button>
                     </form>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Vehiculo;
+use App\Models\Gama;
 use Illuminate\Http\Request;
 
 class VehiculoController extends Controller
@@ -13,6 +14,8 @@ class VehiculoController extends Controller
     public function index()
     {
         //
+        $vehiculos = Vehiculo::all();
+        return view('vehiculos.index', compact('vehiculos'));
     }
 
     /**
@@ -21,6 +24,8 @@ class VehiculoController extends Controller
     public function create()
     {
         //
+        $gamas = Gama::all(); //Paso los datos de la tabla gamas para poder imprimirlos en select de la vista create
+        return view('vehiculos.create', compact('gamas'));
     }
 
     /**
@@ -29,6 +34,7 @@ class VehiculoController extends Controller
     public function store(Request $request)
     {
         //
+        return "processing data";
     }
 
     /**

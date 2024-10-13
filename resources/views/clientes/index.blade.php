@@ -30,7 +30,7 @@
                                 <td style="border: solid 2px;">{{ $cliente->telefono }}</td>
                                 <td style="border: solid 2px;">
                                     <a href="{{ route('clientes.edit', $cliente) }}" class="bg-blue-500 text-white font-bold py-0.4 px-4 rounded hover:bg-blue-900" style="margin: 2px;">
-                                        Editar
+                                        {{__('Edit')}}
                                     </a>
 
                                     <form action="{{ route('clientes.destroy', $cliente) }}" method="post">
@@ -38,7 +38,7 @@
                                         <a href="{{ route('clientes.destroy', $cliente) }}"
                                             onclick="event.preventDefault(); this.closest('form').submit();"
                                             class="bg-red-500 text-white font-bold py-0.5 px-4 rounded hover:bg-red-900" style="margin: 2px; margin-top:1px;">
-                                            Borrar
+                                            {{__('Delete')}}
                                         </a>
                                     </form>
                                 </td>
