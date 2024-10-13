@@ -9,7 +9,10 @@ class Gama extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'gama',
-    ];
+    protected $fillable = [];
+
+    public function vehiculos()
+    {
+        return $this->hasMany(Vehiculo::class, 'id');
+    }
 }
