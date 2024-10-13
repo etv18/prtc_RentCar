@@ -24,6 +24,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/clientes', [ClienteController::class, 'store'])->name('clientes.store');
     Route::get('/editar-cliente/{cliente}', [ClienteController::class, 'edit'])->name('clientes.edit');
     Route::put('/cliente/{cliente}', [ClienteController::class, 'update'])->name('clientes.update');
+    Route::delete('/cliente/{cliente}', [ClienteController::class, 'destroy'])->name('clientes.destroy');
 });
 
 require __DIR__ . '/auth.php';
