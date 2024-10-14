@@ -1,8 +1,11 @@
 <?php
 
+use App\Models\Detalle_Factura;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use App\Models\User;
+use App\Models\Cliente;
 
 return new class extends Migration
 {
@@ -13,6 +16,9 @@ return new class extends Migration
     {
         Schema::create('facturas', function (Blueprint $table) {
             $table->id();
+            $table->foreignIdFor(User::class, 'id')->constrained()->cascadeOnDelete();
+            $table->foreignIdFor(Cliente::class, 'id')->constrained()->cascadeOnDelete();
+            $table->foreignIdFor(Detalle_Factura::class, 'id')->constrained()->cascadeOnDelete();
             $table->timestamps();
         });
     }

@@ -13,4 +13,14 @@ class Factura extends Model
     {
         return $this->hasMany(Detalle_Factura::class, 'id');
     }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'id');
+    }
+
+    public function cliente()
+    {
+        return $this->belongsTo(Cliente::class, 'id');
+    }
 }
