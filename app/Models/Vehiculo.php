@@ -21,4 +21,9 @@ class Vehiculo extends Model
     {
         return $this->belongsTo(Gama::class, 'gama_id');
     }
+
+    public function detalle_facturas()
+    {
+        return $this->hasMany(Detalle_Factura::class, 'id');
+    }
 }

@@ -3,7 +3,8 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-use App\Models;
+use App\Models\Factura;
+use App\Models\Vehiculo;
 
 
 return new class extends Migration
@@ -15,7 +16,11 @@ return new class extends Migration
     {
         Schema::create('detalle__facturas', function (Blueprint $table) {
             $table->id();
-            $table->integer()
+            $table->foreignIdFor(Factura::class)->constrained()->onDelete('cascade');
+            $table->foreignIdFor(Vehiculo::class)->constrained()->onDelete('cascade');
+            $table->date('fecha_inicio');
+            $table->date('fecha_fin');
+            $table->integer('cantidad_dias');
             $table->timestamps();
         });
     }
