@@ -30,7 +30,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/vehiculos', [VehiculoController::class, 'index'])->name('vehiculos.index');
     Route::get('/crear-vehiculo', [VehiculoController::class, 'create'])->name('vehiculos.create');
     Route::post('/crear-vehiculo', [VehiculoController::class, 'store'])->name('vehiculos.store');
-    Route::get('/editar-vehiculo', [VehiculoController::class, 'edit'])->name('vehiculos.edit');
+    Route::get('/editar-vehiculo/{vehiculo}', [VehiculoController::class, 'edit'])->name('vehiculos.edit');
+    Route::put('/editar-vehiculo/{vehiculo}', [VehiculoController::class, 'update'])->name('vehiculos.update');
 });
 
 require __DIR__ . '/auth.php';
