@@ -31,13 +31,13 @@
                                 <td style="border: solid 2px;">{{ $vehiculo->color }}</td>
                                 <td style="border: solid 2px;">{{ $vehiculo->gamas->gama}}</td>
                                 <td style="border: solid 2px;">
-                                    <a href="#" class="bg-blue-500 text-white font-bold py-0.4 px-4 rounded hover:bg-blue-900" style="margin: 2px;">
+                                    <a href="{{ route('vehiculos.edit', $vehiculo) }}" class="bg-blue-500 text-white font-bold py-0.4 px-4 rounded hover:bg-blue-900" style="margin: 2px;">
                                         {{__('Edit')}}
                                     </a>
 
-                                    <form action="" method="post">
+                                    <form action="{{ route('vehiculos.destroy', $vehiculo) }}" method="post">
                                         @csrf @method('DELETE')
-                                        <a href="#"
+                                        <a href="{{ route('vehiculos.destroy', $vehiculo) }}"
                                             onclick="event.preventDefault(); this.closest('form').submit();"
                                             class="bg-red-500 text-white font-bold py-0.5 px-4 rounded hover:bg-red-900" style="margin: 2px; margin-top:1px;">
                                             {{__('Delete')}}

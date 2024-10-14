@@ -60,6 +60,11 @@ class VehiculoController extends Controller
     public function edit(Vehiculo $vehiculo)
     {
         //
+        $gamas = Gama::all();
+        return view('vehiculos.edit', [
+            'vehiculo' => $vehiculo,
+            'gamas' => $gamas,
+        ]);
     }
 
     /**
@@ -68,6 +73,16 @@ class VehiculoController extends Controller
     public function update(Request $request, Vehiculo $vehiculo)
     {
         //
+        $validatedData = $request->validate([
+            'marca' => 'required|string|max:255',
+            'modelo' => 'required|string|max:255',
+            'color' => 'required|string|max:30',
+            'ano_creacion' => 'required|integer|digits:4', // Validación para aceptar solo 4 dígitos
+            'gama_id' => 'required|integer|exists:gamas,id', // Verifica que gama_id exista en la tabla gammas
+        ]);
+
+        $vehiculo->update($validatedData);
+        return to_route('vehiculos.index');
     }
 
     /**
@@ -76,5 +91,7 @@ class VehiculoController extends Controller
     public function destroy(Vehiculo $vehiculo)
     {
         //
+        $vehiculo->delete();
+        return to_route('vehiculos.index');
     }
 }

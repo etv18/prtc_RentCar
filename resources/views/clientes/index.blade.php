@@ -11,7 +11,7 @@
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                     <a href="{{ route('clientes.create') }}" class="inline-flex items-center justify-center px-6 py-3 text-sm text-center text-black bg-white border border-gray-300 shadow-sm hover:bg-gray-100 focus:outline-none focus:ring-2"
                         style=" margin-left: 5%; width: 14%; border-radius: 8px; font-weight:900; font-size: 15px;">
-                        {{__('Add New Client')}}
+                        {{__('Add Client')}}
                     </a>
                     <center>
                         <table style="margin-top: 0.5%; border: solid 2px; border-radius: 5px; width: 90%;">
