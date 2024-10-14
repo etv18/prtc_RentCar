@@ -34,7 +34,16 @@ class VehiculoController extends Controller
     public function store(Request $request)
     {
         //
-        return "processing data";
+        $validatedData = $request->validate([
+            'marca' => 'required|string|max:255',
+            'modelo' => 'required|string|max:255',
+            'color' => 'required|string|max:30',
+            'ano_creacion' => 'required|integer|digits:4', // Validación para aceptar solo 4 dígitos
+            'gama_id' => 'required|integer|exists:gamas,id', // Verifica que gama_id exista en la tabla gammas
+        ]);
+
+        Vehiculo::create($validatedData);
+        return to_route('vehiculos.index');
     }
 
     /**

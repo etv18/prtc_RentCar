@@ -9,7 +9,13 @@ class Vehiculo extends Model
 {
     use HasFactory;
 
-    protected $fillable = [];
+    protected $fillable = [
+        'marca',
+        'modelo',
+        'color',
+        'ano_creacion',
+        'gama_id',
+    ];
 
     public function gamas()
     {

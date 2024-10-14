@@ -30,6 +30,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/vehiculos', [VehiculoController::class, 'index'])->name('vehiculos.index');
     Route::get('/crear-vehiculo', [VehiculoController::class, 'create'])->name('vehiculos.create');
     Route::post('/crear-vehiculo', [VehiculoController::class, 'store'])->name('vehiculos.store');
+    Route::get('/editar-vehiculo', [VehiculoController::class, 'edit'])->name('vehiculos.edit');
 });
 
 require __DIR__ . '/auth.php';
