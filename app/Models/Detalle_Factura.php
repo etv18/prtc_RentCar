@@ -19,6 +19,6 @@ class Detalle_Factura extends Model
 
     public function vehiculos()
     {
-        return $this->belongsTo(Vehiculo::class, 'id');
+        return $this->hasMany(Vehiculo::class, 'id');
     }
 }

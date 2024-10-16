@@ -16,9 +16,9 @@ return new class extends Migration
     {
         Schema::create('facturas', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(User::class, 'id')->constrained()->cascadeOnDelete();
-            $table->foreignIdFor(Cliente::class, 'id')->constrained()->cascadeOnDelete();
-            $table->foreignIdFor(Detalle_Factura::class, 'id')->constrained()->cascadeOnDelete();
+            $table->foreignIdFor(User::class)->constrained()->cascadeOnDelete();
+            $table->foreignIdFor(Cliente::class)->constrained()->cascadeOnDelete();
+            $table->foreignIdFor(Detalle_Factura::class)->constrained()->cascadeOnDelete();
             $table->timestamps();
         });
     }
