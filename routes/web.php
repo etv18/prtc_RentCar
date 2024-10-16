@@ -33,6 +33,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/editar-vehiculo/{vehiculo}', [VehiculoController::class, 'edit'])->name('vehiculos.edit');
     Route::put('/editar-vehiculo/{vehiculo}', [VehiculoController::class, 'update'])->name('vehiculos.update');
     Route::delete('/vehiculo/{vehiculo}', [VehiculoController::class, 'destroy'])->name('vehiculos.destroy');
+
+    Route::get('/solicitud', []);
 });
 
 require __DIR__ . '/auth.php';
