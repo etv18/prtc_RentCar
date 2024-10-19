@@ -16,6 +16,7 @@ class Detalle_Factura extends Model
         'fecha_incio',
         'fecha_fin',
         'cantidad_dias',
+        'precio_dia',
         'total_vehiculo',
     ];
 
@@ -26,6 +27,6 @@ class Detalle_Factura extends Model
 
     public function vehiculos()
     {
-        return $this->hasMany(Vehiculo::class, 'id');
+        return $this->belongsTo(Vehiculo::class, 'id');
     }
 }

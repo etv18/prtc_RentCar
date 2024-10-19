@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Factura;
+use App\Models\Detalle_Factura;
 use Illuminate\Http\Request;
 
 class FacturaController extends Controller
@@ -20,7 +22,6 @@ class FacturaController extends Controller
      */
     public function create()
     {
-        //
         return view('facturas.create');
     }
 
@@ -29,7 +30,21 @@ class FacturaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //vD stants for validatedData
+        /*
+            'user_id',
+            'cliente_id',
+            'detalle__factura_id',
+            'total',
+          */
+        $validatedData = $request->validate([
+            'user_id' => auth()->id(),
+            'cliente_id' => 'required|integer|exits:clientes,id',
+            'detalle__fatura_id' => 'required|integer|exits:detalle__facturas,id',
+            'total' => 'required|numeric',
+        ]);
+
+        Factura::create($validatedData);
     }
 
     /**

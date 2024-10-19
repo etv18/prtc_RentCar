@@ -21,7 +21,7 @@
                                         <p style="font-weight: bold; font-size:18px">No Factura</p>
                                     </div>
                                     <div>
-                                        <p style="font-weight: bold; font-size:18px">$001$</p>
+                                        <p name="factura_id" style="font-weight: bold; font-size:18px">$001$</p>
                                     </div>
                                 </div>
                                 <div style="display:flex; gap: 8px;">
@@ -62,7 +62,7 @@
                             <div class="detalle" style="display:flex; gap:8px;">
                                 <div style="width: 30%;">
                                     <label for="vehiculos" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Vehiculo/s</label>
-                                    <select name="vahiculos_id[]" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                    <select name="vehiculo_id[]" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                         <option value="">Seleccionar</option>
                                         <option value="">vehiculovehiculo2</option>
                                         <option value="">vehiculovehiculo3</option>
@@ -73,16 +73,20 @@
                                     <input type="number" name="cantidad_dias[]" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="" required />
                                 </div>
                                 <div>
+                                    <label for="fecha_fin" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Precio por Día</label>
+                                    <input type="number" name="precio_dia[]" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="" required />
+                                </div>
+                                <div>
+                                    <label for="vehiculo" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Total Por Vehículo</label>
+                                    <input type="number" name="total_vehiculo[]" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="" required />
+                                </div>
+                                <div>
                                     <label for="fecha_inicio" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Incio de la Renta</label>
                                     <input type="date" name="fecha_incio[]" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="" required />
                                 </div>
                                 <div>
                                     <label for="fecha_fin" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Final de la Renta</label>
                                     <input type="date" name="fecha_fin[]" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="" required />
-                                </div>
-                                <div>
-                                    <label for="vehiculo" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Total Por Vehículo</label>
-                                    <input type="text" name="vehiculos[]" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="" required />
                                 </div>
                             </div>
                         </div>
