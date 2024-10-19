@@ -12,6 +12,7 @@ class FacturaController extends Controller
     public function index()
     {
         //
+        return view('facturas.index');
     }
 
     /**
@@ -20,6 +21,7 @@ class FacturaController extends Controller
     public function create()
     {
         //
+        return view('facturas.create');
     }
 
     /**

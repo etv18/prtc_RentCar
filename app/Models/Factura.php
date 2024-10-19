@@ -9,6 +9,13 @@ class Factura extends Model
 {
     use HasFactory;
 
+    public $fillable = [
+        'user_id',
+        'cliente_id',
+        'detalle__factura_id',
+        'total',
+    ];
+
     public function detalle__facturas()
     {
         return $this->hasMany(Detalle_Factura::class, 'id');

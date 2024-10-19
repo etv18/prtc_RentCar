@@ -10,7 +10,14 @@ class Detalle_Factura extends Model
 {
     use HasFactory;
 
-    protected $fillable = [];
+    protected $fillable = [
+        'factura_id',
+        'vehiculo_id',
+        'fecha_incio',
+        'fecha_fin',
+        'cantidad_dias',
+        'total_vehiculo',
+    ];
 
     public function factura()
     {

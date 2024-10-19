@@ -2,10 +2,12 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ClienteController;
+use App\Http\Controllers\FacturaController;
 use App\Http\Controllers\VehiculoController;
 use GuzzleHttp\Client;
 use Illuminate\Support\Facades\Route;
 use App\Models\Cliente;
+use App\Models\Factura;
 
 Route::get('/', function () {
     return view('welcome');
@@ -34,7 +36,9 @@ Route::middleware('auth')->group(function () {
     Route::put('/editar-vehiculo/{vehiculo}', [VehiculoController::class, 'update'])->name('vehiculos.update');
     Route::delete('/vehiculo/{vehiculo}', [VehiculoController::class, 'destroy'])->name('vehiculos.destroy');
 
-    Route::get('/solicitud', []);
+    Route::get('/solicitud', [FacturaController::class, 'index'])->name('facturas.index');
+    Route::get('/crear-solicitud', [FacturaController::class, 'create'])->name('facturas.create');
+    Route::post('/solicitud', [FacturaController::class, 'store'])->name('facturas.store');
 });
 
 require __DIR__ . '/auth.php';
