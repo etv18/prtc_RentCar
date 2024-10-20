@@ -13,7 +13,7 @@ class Detalle_Factura extends Model
     protected $fillable = [
         'factura_id',
         'vehiculo_id',
-        'fecha_incio',
+        'fecha_inicio',
         'fecha_fin',
         'cantidad_dias',
         'precio_dia',
