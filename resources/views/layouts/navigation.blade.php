@@ -63,6 +63,30 @@
                             </x-dropdown>
                         </div>
                     </div>
+
+                    <div class="hidden sm:flex sm:items-center sm:ms-6 space-x-8">
+                        <!-- Dropdown Clientes -->
+                        <div class="relative inline-block text-left">
+                            <x-dropdown>
+                                <x-slot name="trigger">
+                                    <button class="flex items-center text-sm font-medium text-gray-400 hover:text-gray-300 focus:outline-none">
+                                        {{ __('Solicitudes') }}
+                                        <svg class="ml-1 h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 011.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                        </svg>
+                                    </button>
+                                </x-slot>
+                                <x-slot name="content" class="z-10 mt-2">
+                                    <x-dropdown-link :href="route('facturas.index')" :active="request()->routeIs('facturas.index')">
+                                        {{ __('Solicitude List') }}
+                                    </x-dropdown-link>
+                                    <x-dropdown-link :href="route('facturas.create')" :active="request()->routeIs('facturas.create')">
+                                        {{ __('Make Solicitude') }}
+                                    </x-dropdown-link>
+                                </x-slot>
+                            </x-dropdown>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- Settings Dropdown -->

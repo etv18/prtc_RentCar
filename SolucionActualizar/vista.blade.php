@@ -1,47 +1,54 @@
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!DOCTYPE html>
+<html lang="es">
 
-<form>
-    <!-- Selector de vehículos -->
-    <label for="vehiculo_id">Selecciona un vehículo:</label>
-    <select id="vehiculo_id" name="vehiculo_id">
-        <!-- Aquí debes generar los vehículos dinámicamente -->
-        @foreach ($vehiculos as $vehiculo)
-        <option value="{{ $vehiculo->id }}">{{ $vehiculo->nombre }}</option>
-        @endforeach
-    </select>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculador de Fechas</title>
+</head>
 
-    <!-- Campo para ingresar la cantidad de días -->
-    <label for="dias">Número de días:</label>
-    <input type="number" id="dias" name="dias" placeholder="Cantidad de días">
+<body>
+    <label for="fecha_inicio">Fecha de Inicio:</label>
+    <input type="date" id="fecha_inicio"><br><br>
 
-    <!-- Campo para mostrar el precio calculado -->
-    <label for="precio_por_dia">Precio por día:</label>
-    <input type="text" id="precio_por_dia" name="precio_por_dia" readonly>
+    <label for="cantidad_dias">Cantidad de Días:</label>
+    <input type="number" id="cantidad_dias" value="5"><br><br>
 
-    <button type="submit">Reservar</button>
-</form>
+    <label for="fecha_final">Fecha Final:</label>
+    <input type="date" id="fecha_final" readonly><br><br>
 
-<script>
-    $(document).ready(function() {
-        $('#vehiculo_id, #dias').on('change', function() {
-            let vehiculoId = $('#vehiculo_id').val();
-            let dias = $('#dias').val();
+    <button onclick="calcularFechaFinal()">Calcular Fecha Final</button>
 
-            if (vehiculoId && dias) {
-                $.ajax({
-                    url: '{{ route('
-                    calcular.precio ') }}', // Ruta que apunta a tu controlador
-                    method: 'POST',
-                    data: {
-                        vehiculo_id: vehiculoId,
-                        dias: dias,
-                        _token: '{{ csrf_token() }}' // Incluye el token CSRF
-                    },
-                    success: function(response) {
-                        $('#precio_por_dia').val(response.precio); // Mostrar el precio en el campo correspondiente
-                    }
-                });
+    <script>
+        function calcularFechaFinal() {
+            // Obtener el valor del input de fecha de inicio
+            let fechaInicioInput = document.getElementById('fecha_inicio').value;
+            let fechaInicio;
+
+            // Si no se selecciona fecha de inicio, usar la fecha actual
+            if (fechaInicioInput === '') {
+                fechaInicio = new Date();
+            } else {
+                fechaInicio = new Date(fechaInicioInput);
             }
-        });
-    });
-</script>
+
+            // Obtener la cantidad de días ingresados
+            let cantidadDias = parseInt(document.getElementById('cantidad_dias').value);
+
+            // Sumar los días a la fecha de inicio
+            fechaInicio.setDate(fechaInicio.getDate() + cantidadDias);
+
+            // Formatear la fecha final en formato 'YYYY-MM-DD' para el input date
+            let year = fechaInicio.getFullYear();
+            let month = String(fechaInicio.getMonth() + 1).padStart(2, '0'); // Los meses son 0-indexados
+            let day = String(fechaInicio.getDate()).padStart(2, '0');
+
+            let fechaFinalFormateada = `${year}-${month}-${day}`;
+
+            // Mostrar la fecha final en el input de fecha final
+            document.getElementById('fecha_final').value = fechaFinalFormateada;
+        }
+    </script>
+</body>
+
+</html>

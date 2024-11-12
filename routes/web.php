@@ -38,6 +38,7 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/solicitud', [FacturaController::class, 'index'])->name('facturas.index');
     Route::get('/crear-solicitud', [FacturaController::class, 'create'])->name('facturas.create');
+    // Route::get('/crear-solicitud', [FacturaController::class, 'calcular'])->name('facturas.calcular');
     Route::post('/solicitud', [FacturaController::class, 'store'])->name('facturas.store');
 });
 

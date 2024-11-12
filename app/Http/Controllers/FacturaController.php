@@ -6,10 +6,12 @@ use App\Models\Factura;
 use App\Models\Detalle_Factura;
 use App\Models\Vehiculo;
 use App\Models\Cliente;
+use App\Models\Gama;
 use Illuminate\Http\Request;
 
 class FacturaController extends Controller
 {
+    //public function calcular(Request $request) {}
     /**
      * Display a listing of the resource.
      */
@@ -24,13 +26,23 @@ class FacturaController extends Controller
      */
     public function create()
     {
+        $gamas = Gama::all();
         $vehiculos = Vehiculo::all();
         $clientes = Cliente::all();
         $user = auth()->user();
         $ultimoId = Factura::latest('id')->first()->id ?? 0; // Obtener el último ID o 0 si no hay registros
         $nuevoId = $ultimoId + 1; // Sumar 1 al último ID
 
-        return view('facturas.create', compact('clientes', 'vehiculos', 'user', 'nuevoId'));
+        return view(
+            'facturas.create',
+            compact(
+                'clientes',
+                'vehiculos',
+                'user',
+                'nuevoId',
+                'gamas',
+            )
+        );
     }
 
     /**
